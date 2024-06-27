@@ -1,0 +1,121 @@
+Console.WriteLine("Hello, World!");
+int numero = 5;
+
+Console.WriteLine($"{numero} * 1 = {numero * 1}");
+
+for (int contador = 0; contador <= 10; contador++) {
+
+}
+
+    -------------------------------------------------------------------------
+
+    Outros conceitos básicos csharp:
+
+    for (statement 1; statement 2; statement 3) 
+    {
+    // code block to be executed
+    }
+
+    Exemplo:
+
+    for (int i = 0; i < 5; i++) 
+    {
+        Console.WriteLine(i);
+    }
+
+    outro Exemplo:
+
+    // Outer loop
+    for (int i = 1; i <= 2; ++i) 
+    {
+        Console.WriteLine("Outer: " + i);  // Executes 2 times
+    
+    // Inner loop
+    for (int j = 1; j <= 3; j++) 
+    {
+        Console.WriteLine(" Inner: " + j); // Executes 6 times (2 * 3)
+    }
+    }
+
+    -------------------------------------------------------------------------
+
+    foreach (type variableName in arrayName) 
+    {
+        // code block to be executed
+    }
+
+    Exemplo:
+
+    string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+    foreach (string i in cars) 
+    {
+        Console.WriteLine(i);
+    }
+
+    -------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+modelo 1:
+
+// projeto do jogo da palavra secreta
+// usuário vai digitar uma letra até acertar a palavra secreta.
+
+
+
+
+
+Console.WriteLine("\t\tBEM VINDO AO JOGO DA PALAVRA SECRETA!");
+Console.WriteLine("\t\tVAMOS COMEÇAR?");
+
+// Console.WriteLine("Digite um para começar...");
+// if () ...
+// while () ... 
+
+Console.Write("\t\tDIGITE UMA LETRA: ");
+char letraDoUsuario = Console.ReadLine();
+
+// -------------------------------------------------------------
+
+string palavraSecreta = "AMIGO";
+char[] palavraSecretaArray = new char[palavraSecreta.Length];
+
+/*  A seguir tem um "for", que talvez seja complicado de entender:
+primeiro eu crio o "contadorDaPalavraSecreta" no for que servirá para acessar cada caractere da palavra secreta,
+logo, cada caractere vai ser atribuido individualmente em cada loop para "letrasDaPalavraSecreta",
+por fim, eu adiciono cada caractere em sua posição no array que foi criado logo acima. */
+
+for (int contadorDaPalavraSecreta = 0; contadorDaPalavraSecreta <= palavraSecreta.Length; contadorDaPalavraSecreta++) {
+    char letrasDaPalavraSecreta = palavraSecreta[contadorDaPalavraSecreta];
+    palavraSecretaArray[contadorDaPalavraSecreta] = letrasDaPalavraSecreta;
+}
+
+// -------------------------------------------------------------
+
+if (palavraSecretaArray.Length != 0) {
+    foreach (char letraParaComparar in palavraSecretaArray) {
+        if (letraParaComparar == letraDoUsuario) {
+            palavraSecretaArray = palavraSecretaArray.Where(i => i != letraDoUsuario).ToArray();
+            Console.WriteLine($"PARABÉNS VOCÊ ACERTOU UMA LETRA! AGORA FALTAM {palavraSecretaArray.Length} LETRAS");
+        }
+    }
+}
+else {
+    Console.WriteLine("ERRRRRRROOOOOUUUUUUUUUU!");
+}
